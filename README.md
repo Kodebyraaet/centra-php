@@ -1,4 +1,4 @@
-# centra-php
+# Kodebyraaet/centra-php
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,21 +7,16 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+This is a package for easier communication with the Centra API.
 
 ## Structure
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
+```     
 config/
 src/
 tests/
 vendor/
 ```
-
 
 ## Install
 
@@ -34,8 +29,7 @@ $ composer require kodebyraaet/centra-php
 ## Usage
 
 ``` php
-$skeleton = new kodebyraaet\centra-php();
-echo $skeleton->echoPhrase('Hello, League!');
+// TODO
 ```
 
 ## Change log
@@ -47,19 +41,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ``` bash
 $ composer test
 ```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
-
-## Security
-
-If you discover any security related issues, please email anthoni@kodebyraaet.no instead of using the issue tracker.
-
-## Credits
-
-- [Anthoni Giskegjerde][link-author]
-- [All Contributors][link-contributors]
 
 ## License
 
@@ -77,5 +58,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-scrutinizer]: https://scrutinizer-ci.com/g/kodebyraaet/centra-php/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/kodebyraaet/centra-php
 [link-downloads]: https://packagist.org/packages/kodebyraaet/centra-php
-[link-author]: https://github.com/antonigiske
-[link-contributors]: ../../contributors
+
