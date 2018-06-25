@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Kodebyraaet\\Centra\\": "tests"
+            "Centra\\Tests\\": "tests/"
         }
     },
     "scripts": {

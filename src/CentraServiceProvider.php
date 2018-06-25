@@ -11,13 +11,13 @@ class CentraServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/centra.php' => config_path('centra.php')
+            __DIR__ . '/../config/centra.php' => config_path('centra.php')
         ], 'centra');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom( __DIR__.'/../config/centra.php', 'centra');
+        $this->mergeConfigFrom( __DIR__ . '/../config/centra.php', 'centra');
 
         $this->app->singleton('centra', function($app) {
 
