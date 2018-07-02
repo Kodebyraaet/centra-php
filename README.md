@@ -1,5 +1,6 @@
-# Kodebyraaet/centra-php [![Build Status](https://travis-ci.org/Kodebyraaet/centra-php.svg?branch=master)](https://travis-ci.org/Kodebyraaet/centra-php)
+# Kodebyraaet/centra-php 
 
+[![Build Status](https://travis-ci.org/Kodebyraaet/centra-php.svg?branch=master)](https://travis-ci.org/Kodebyraaet/centra-php)
 [![Latest Stable Version](https://poser.pugx.org/kodebyraaet/centra-php/v/stable)](https://packagist.org/packages/kodebyraaet/centra-php)
 [![Total Downloads](https://poser.pugx.org/kodebyraaet/centra-php/downloads)](https://packagist.org/packages/kodebyraaet/centra-php)
 [![License](https://poser.pugx.org/kodebyraaet/centra-php/license)](https://packagist.org/packages/kodebyraaet/centra-php)
