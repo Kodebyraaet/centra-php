@@ -1,9 +1,9 @@
-# Kodebyraaet/centra-php
+# Kodebyraaet/centra-php [![Build Status](https://travis-ci.org/Kodebyraaet/centra-php.svg?branch=master)](https://travis-ci.org/Kodebyraaet/centra-php)
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Latest Stable Version](https://poser.pugx.org/kodebyraaet/centra-php/v/stable)](https://packagist.org/packages/kodebyraaet/centra-php)
+[![Total Downloads](https://poser.pugx.org/kodebyraaet/centra-php/downloads)](https://packagist.org/packages/kodebyraaet/centra-php)
+[![License](https://poser.pugx.org/kodebyraaet/centra-php/license)](https://packagist.org/packages/kodebyraaet/centra-php)
+
 
 This is a package for easier communication with the Centra API.
 
@@ -43,17 +43,4 @@ $ composer test
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/kodebyraaet/centra-php.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/kodebyraaet/centra-php/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/kodebyraaet/centra-php.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/kodebyraaet/centra-php.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/kodebyraaet/centra-php.svg?style=flat-square
-
-[link-packagist]: https://packagist.org/packages/kodebyraaet/centra-php
-[link-travis]: https://travis-ci.org/Kodebyraaet/centra-php
-[link-scrutinizer]: https://scrutinizer-ci.com/g/kodebyraaet/centra-php/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/kodebyraaet/centra-php
-[link-downloads]: https://packagist.org/packages/kodebyraaet/centra-php
 
