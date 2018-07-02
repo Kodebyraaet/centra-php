@@ -150,6 +150,16 @@ class Centra
 
 
     /**
+     * Returns the request body
+     * @return array
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+
+    /**
      * Runs the request and handles the response and errors
      * @param int $limit
      * @param int $skip
@@ -161,7 +171,7 @@ class Centra
         $this->body['skipFirst'] = (int) $skip;
 
         try {
-            $response = $this->client->send($this->request, ['body' => json_encode($this->body)]);
+            $response = $this->client->send($this->request, ['body' => json_encode($this->getBody())]);
 
             // clean up body
             $this->body = [];
