@@ -39,11 +39,14 @@ class Centra
     /**
      * @param $endpoint string Centra API endpoint
      */
-    public function __construct($endpoint)
+    public function __construct($endpoint, $apiAuth)
     {
         $this->client = new Client([
             'base_uri' => $endpoint,
-            'timeout' => 5.0
+            'timeout' => 5.0,
+            'headers' => [
+                'API-Authorization' => $apiAuth
+            ]
         ]);
     }
 
@@ -97,7 +100,7 @@ class Centra
      */
     public function products()
     {
-        $this->request = new Request('POST', 'products');
+        $this->request = new Request('GET', 'products');
         return $this;
     }
 
@@ -167,8 +170,8 @@ class Centra
      */
     public function get($limit = 0, $skip = 0)
     {
-        $this->body['limit'] = (int) $limit;
-        $this->body['skipFirst'] = (int) $skip;
+        //$this->body['limit'] = (int) $limit;
+        //$this->body['skipFirst'] = (int) $skip;
 
         try {
             $response = $this->client->send($this->request, ['body' => json_encode($this->getBody())]);
@@ -178,9 +181,12 @@ class Centra
 
             return $this->displayResponse($response);
         } catch (ServerException $e) {
-            $this->displayErrorMessage(json_decode($e->getResponse()->getBody()->getContents()));
+            return $this->displayErrorMessage($e->getResponse()->getBody()->getContents());
         } catch (GuzzleException $e) {
-            $this->displayErrorMessage(json_decode($e->getResponse()->getBody()->getContents()));
+            if ($e->getResponse()->getStatusCode() == 401) {
+                return $this->displayErrorMessage('Not authorized');
+            }
+            return $this->displayErrorMessage($e->getResponse()->getBody()->getContents());
         }
     }
 
