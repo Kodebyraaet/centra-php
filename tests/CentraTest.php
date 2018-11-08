@@ -20,7 +20,7 @@ class CentraTest extends \PHPUnit\Framework\TestCase
     public function __construct()
     {
         parent::__construct();
-        $this->centra = new Centra("http://endpoint");
+        $this->centra = new Centra("http://endpoint", "apiKey");
     }
 
 
