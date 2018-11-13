@@ -37,17 +37,19 @@ class Centra
 
 
     /**
-     * @param $endpoint string Centra API endpoint
+     * Centra constructor.
      */
-    public function __construct($endpoint, $apiAuth)
+    public function __construct()
     {
-        $this->client = new Client([
-            'base_uri' => $endpoint,
+        $config = [
+            'base_uri' => getenv('CENTRA_ENDPOINT'),
             'timeout' => 5.0,
             'headers' => [
-                'API-Authorization' => $apiAuth
+                'API-Authorization' => getenv('CENTRA_AUTH_KEY')
             ]
-        ]);
+        ];
+
+        $this->client = new Client($config);
     }
 
     /**
@@ -89,6 +91,12 @@ class Centra
     public function markets()
     {
         $this->request = new Request('GET', 'markets');
+        return $this;
+    }
+
+    public function marketFromIp($ip)
+    {
+        $this->request = new Request('GET', 'countries/' . urlencode($ip));
         return $this;
     }
 
