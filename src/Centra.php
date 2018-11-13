@@ -94,13 +94,6 @@ class Centra
         return $this;
     }
 
-    public function marketFromIp($ip)
-    {
-        $this->request = new Request('GET', 'countries/' . urlencode($ip));
-        return $this;
-    }
-
-
 
     /**
      * Returns the products
