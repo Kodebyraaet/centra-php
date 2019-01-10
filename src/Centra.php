@@ -200,7 +200,7 @@ class Centra
             // clean up body
             $this->body = [];
 
-            return response()->json(json_decode($this->response->getBody()->getContents()), 200);
+            return json_decode($this->response->getBody()->getContents());
         } catch (ServerException $e) {
             return response()->json($e->getMessage());
         } catch (GuzzleException $e) {
