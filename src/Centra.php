@@ -2,6 +2,7 @@
 
 namespace Kodebyraaet\Centra;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
@@ -35,6 +36,8 @@ class Centra
      */
     private $body = [];
 
+
+    public $response;
 
     /**
      * Centra constructor.
@@ -111,6 +114,22 @@ class Centra
         return $this;
     }
 
+    /**
+     * Starts a newletter subscription for an e-mail address
+     * @param $email
+     * @param array $fields product|country
+     * @return $this
+     */
+    public function newsletterSubscription($email, $fields = [])
+    {
+        $this->request = new Request('POST', 'customers/' . $email . '/newsletter-subscription');
+
+        if (array_key_exists('product', $fields)) $this->body['product'] = $fields['product'];
+        if (array_key_exists('country', $fields)) $this->body['country'] = $fields['country'];
+
+        return $this;
+    }
+
 
     /**
      * Returns a single product
@@ -170,53 +189,22 @@ class Centra
 
 
     /**
-     * Runs the request and handles the response and errors
-     * @param int $limit
-     * @param int $skip
      * @return mixed
+     * @throws Exception
      */
-    public function get($limit = 0, $skip = 0)
+    public function get()
     {
-        //$this->body['limit'] = (int) $limit;
-        //$this->body['skipFirst'] = (int) $skip;
-
         try {
-            $response = $this->client->send($this->request, ['body' => json_encode($this->getBody())]);
+            $this->response = $this->client->send($this->request, ['body' => json_encode($this->getBody())]);
 
             // clean up body
             $this->body = [];
 
-            return $this->displayResponse($response);
+            return response()->json($this->response->getBody()->getContents(), 200);
         } catch (ServerException $e) {
-            return $this->displayErrorMessage($e->getResponse()->getBody()->getContents());
+            return response()->json($e->getMessage());
         } catch (GuzzleException $e) {
-            if ($e->getResponse()->getStatusCode() == 401) {
-                return $this->displayErrorMessage('Not authorized');
-            }
-            return $this->displayErrorMessage($e->getResponse()->getBody()->getContents());
+            return response()->json($e->getMessage());
         }
-    }
-
-    /**
-     * Displays the response
-     * @param $response ResponseInterface
-     * @return mixed
-     */
-    private function displayResponse($response)
-    {
-        return json_decode($response->getBody()->getContents());
-    }
-
-
-    /**
-     * Displays the error message
-     * @param $error \stdClass
-     */
-    private function displayErrorMessage($error)
-    {
-        // TODO: Display this better.
-        echo '<pre>';
-        print_r($error);
-        exit();
     }
 }
