@@ -97,18 +97,24 @@ class Centra
 
     /**
      * Returns the products
+     * @param array $ids
      * @return Centra
      */
-    public function products()
+    public function products($ids = [])
     {
-        $this->request = new Request('GET', 'products');
+        if (empty($ids)) {
+            $this->request = new Request('GET', 'products');
+        } else {
+            $this->request = new Request('POST', 'products/filter');
+            $this->body['products'] = $ids;
+        }
         return $this;
     }
 
 
     /**
      * Returns a single product
-     * @param string $productId Product ID
+     * @param string $productId ID
      * @return Centra
      */
     public function product($productId)
