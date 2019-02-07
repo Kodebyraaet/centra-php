@@ -99,6 +99,16 @@ class Centra
 
 
     /**
+     * Returns product ids
+     * @return $this
+     */
+    public function productIds()
+    {
+        $this->request = new Request('GET', 'product-ids');
+        return $this;
+    }
+
+    /**
      * Returns the products
      * @param array $ids
      * @return Centra
@@ -204,7 +214,10 @@ class Centra
         } catch (ServerException $e) {
             return response()->json($e->getMessage());
         } catch (GuzzleException $e) {
-            return response()->json($e->getMessage());
+            return response()->json(
+                json_decode($e->getResponse()->getBody()->getContents()),
+                $e->getResponse()->getStatusCode()
+            );
         }
     }
 }
