@@ -134,7 +134,7 @@ class Centra
     {
         $this->request = new Request('POST', 'customers/' . $email . '/newsletter-subscription');
 
-        if (array_key_exists('product', $fields)) $this->body['product'] = $fields['product'];
+        if (array_key_exists('product', $fields)) $this->body['product'] = (string) $fields['product'];
         if (array_key_exists('country', $fields)) $this->body['country'] = $fields['country'];
 
         return $this;
