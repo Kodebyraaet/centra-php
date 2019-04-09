@@ -45,10 +45,10 @@ class Centra
     public function __construct()
     {
         $config = [
-            'base_uri' => env('CENTRA_ENDPOINT', ''),
+            'base_uri' => getenv('CENTRA_ENDPOINT'),
             'timeout' => 5.0,
             'headers' => [
-                'API-Authorization' => env('CENTRA_AUTH_KEY')
+                'API-Authorization' => getenv('CENTRA_AUTH_KEY')
             ]
         ];
 
