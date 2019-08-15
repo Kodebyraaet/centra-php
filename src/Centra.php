@@ -46,7 +46,7 @@ class Centra
     {
         $config = [
             'base_uri' => getenv('CENTRA_ENDPOINT'),
-            'timeout' => 5.0,
+            'timeout' => 10.0,
             'headers' => [
                 'API-Authorization' => getenv('CENTRA_AUTH_KEY')
             ]
