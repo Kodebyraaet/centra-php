@@ -5,7 +5,6 @@ namespace Kodebyraaet\Centra;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -45,10 +44,10 @@ class Centra
     public function __construct()
     {
         $config = [
-            'base_uri' => getenv('CENTRA_ENDPOINT'),
+            'base_uri' => config('centra.endpoint'),
             'timeout' => 10.0,
             'headers' => [
-                'API-Authorization' => getenv('CENTRA_AUTH_KEY')
+                'API-Authorization' => config('centra.auth_key')
             ]
         ];
 
