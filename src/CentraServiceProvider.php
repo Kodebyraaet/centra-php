@@ -10,7 +10,7 @@ class CentraServiceProvider extends ServiceProvider {
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'./config/centra.php', 'centra');
+        $this->mergeConfigFrom(__DIR__ . '/config/centra.php', 'centra');
 
         $this->app->singleton('centra', function($app) {
             return new Centra();
