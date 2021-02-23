@@ -19,7 +19,7 @@ class Centra
      * Guzzle Client
      * @var Client
      */
-    private $client;
+    private $client = null;
 
 
     /**
@@ -39,9 +39,9 @@ class Centra
     public $response;
 
     /**
-     * Centra constructor.
+     * Initialize GuzzleClient for Centra.
      */
-    public function __construct()
+    public function initClient()
     {
         $config = [
             'base_uri' => config('centra.endpoint'),
@@ -203,6 +203,8 @@ class Centra
      */
     public function get()
     {
+        if($this->client === null) $this->initClient();
+
         try {
             $this->response = $this->client->send($this->request, ['body' => json_encode($this->getBody())]);
 
